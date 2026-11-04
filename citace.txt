@@ -1,0 +1,6 @@
+LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436-444.
+Wilkinson, M. D. et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3, 160018.
+Cox, A. M., & Mazumdar, S. (2024). Defining artificial intelligence for librarians. Journal of Librarianship and Information Science, 56(2), 330-340.
+Rodriguez, S., & Mune, C. (2022). Uncoding library chatbots: deploying a new virtual reference tool at the San Jose State University Library. Reference Services Review.
+Novotná, K., & Brooks, P. (2023). Generative AI and the future of cataloguing in Central European academic libraries. Journal of Library Automation Studies, 14(2), 45-61.
+Cejpek, J. (2005). Informace, komunikace a myšlení: úvod do informační vědy. 2. vyd. Praha: Karolinum.
