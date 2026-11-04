@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vibecoding: úlohy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+[hidden] { display: none !important; }
+:root {
+  color-scheme: dark;
+  --ground: #131116; --panel: #1C1920; --line: #2E2933; --ink: #F3EEE8; --muted: #A69FA9;
+  --orange: #FF6A2B; --ok: #7FD1A2;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.page { padding-block: 48px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 820px; margin: 0 auto; display: grid; gap: 28px; }
+.tag { font-family: var(--mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-variation-settings: "wdth" 112; font-weight: 800; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.05; margin: 0; }
+h2 { font-family: var(--display); font-size: 1.4rem; margin: 0; }
+p { margin: 0; font-size: 1.05rem; line-height: 1.6; max-width: 65ch; }
+.muted { color: var(--muted); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+pre { margin: 0; white-space: pre-wrap; font-family: var(--mono); font-size: .95rem; line-height: 1.55; background: var(--ground); border: 1px solid var(--line); border-radius: 8px; padding: 14px; overflow-x: auto; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.copybtn { font: inherit; font-size: .9rem; font-weight: 700; background: var(--ink); color: var(--ground); border: 1px solid var(--ink); border-radius: 8px; padding: 8px 16px; cursor: pointer; }
+.status { font-size: .9rem; color: var(--ok); min-height: 1.2em; }
+.warnline { border-left: 4px solid var(--orange); padding-left: 14px; }
+.tips ul, .card ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; line-height: 1.5; }
+details { border-top: 1px dashed var(--line); padding-top: 10px; display: grid; gap: 10px; }
+summary { cursor: pointer; color: var(--muted); font-size: .95rem; }
+details[open] summary { margin-bottom: 8px; }
+a { color: #FF9A6B; }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="inner">
+    <span class="tag">Workshop Vibecoding · 4. 11. 2026</span>
+    <h1>Úlohy ke stavění</h1>
+    <p>Vyberte si ve dvojici jednu úlohu. Zadání pro AI napište sami, vlastními slovy. Vzorové zadání je schované pod každou úlohou, kdybyste se zasekli.</p>
+
+    <div class="card tips">
+      <h2>Jak napsat zadání pro AI</h2>
+      <ul>
+        <li>Řekněte, <b>co má nástroj dělat</b> a <b>pro koho</b> je.</li>
+        <li>Popište, <b>co do něj vložíte</b> a <b>co z něj má vyjít</b>.</li>
+        <li>Napište, že má být <b>v jednom HTML souboru, česky a bez internetu</b>.</li>
+        <li>Začněte jednoduše. Další věci přidávejte postupně, jednou větou.</li>
+      </ul>
+      <p class="warnline">Do chatu nic skutečného: žádné údaje čtenářů, exporty ani hesla. Data si nechte vygenerovat, nebo použijte smyšlená data níže. Pracujte v Gemini Canvas, nebo v Macaly.</p>
+    </div>
+
+    <div class="card">
+      <h2>A · Vyhledávač deskových her</h2>
+      <p>Knihovna půjčuje deskové hry. Čtenáři chtějí najít hru podle počtu hráčů, délky a věku.</p>
+      <ul>
+        <li>hledání podle názvu</li>
+        <li>filtry: počet hráčů, nejdelší délka hry, věk</li>
+        <li>u každé hry: název, počet hráčů od a do, délka v minutách, věk od</li>
+      </ul>
+      <p class="muted">Smyšlená data: <a href="data/deskove-hry.csv" download>deskove-hry.csv</a> (30 her, orientační údaje). Nebo si seznam nechte vygenerovat.</p>
+      <p class="muted">Vyzkoušejte: zadejte tři hráče. Ukáže se hra pro dva až čtyři?</p>
+      <details><summary>Když si nevíte rady: vzorové zadání</summary><pre id="pA">Vytvoř v jednom HTML souboru česky vyhledávač deskových her pro čtenáře knihovny. Vygeneruj seznam 30 her (název, počet hráčů od a do, délka hry v minutách, věk od, krátký popis). Přidej hledání podle názvu a filtry: počet hráčů, maximální délka, věk. Přehledný a hezký design, bez internetu.</pre><div class="row"><span></span><button type="button" class="copybtn" data-copy="pA">Kopírovat</button></div><div class="status" data-status="pA" aria-live="polite"></div></details>
+    </div>
+
+    <div class="card">
+      <h2>B · Čistič seznamu časopisů</h2>
+      <p>Máte seznam časopisů k předplatnému. Jsou v něm chyby: duplicity, různě zapsaná ISSN a chybějící ceny.</p>
+      <ul>
+        <li>tabulku do nástroje nahrajete</li>
+        <li>najde duplicity podle ISSN a sjednotí zápis ISSN</li>
+        <li>upozorní na chybějící ceny</li>
+        <li>sečte ceny podle způsobu nákupu (přímo, přes dodavatele, CzechELib)</li>
+        <li>vrátí vyčištěnou tabulku</li>
+      </ul>
+      <p class="muted">Smyšlená data: <a href="data/casopisy.csv" download>casopisy.csv</a> (40 řádků, oddělovač středník).</p>
+      <p class="muted">Vyzkoušejte: kolik duplicit nástroj našel? Když si ho stáhnete a otevřete u sebe bez internetu, můžete ho pustit i na skutečnou tabulku.</p>
+      <details><summary>Když si nevíte rady: vzorové zadání</summary><pre id="pB2">Vytvoř v jednom HTML souboru česky nástroj, do kterého tuhle tabulku nahraju. Najde duplicity podle ISSN, sjednotí zápis ISSN, upozorní na prázdné ceny, spočítá součet cen podle způsobu nákupu a nabídne stažení vyčištěné tabulky. Bez internetu.</pre><div class="row"><span></span><button type="button" class="copybtn" data-copy="pB2">Kopírovat</button></div><div class="status" data-status="pB2" aria-live="polite"></div></details>
+    </div>
+
+    <div class="card">
+      <h2>C · Kontrola ISBN a ISSN</h2>
+      <p>Potřebujete rychle ověřit, jestli jsou čísla ISBN a ISSN v seznamu platná.</p>
+      <ul>
+        <li>pozná, jestli jde o ISBN-10, ISBN-13, nebo ISSN</li>
+        <li>ověří kontrolní číslici</li>
+        <li>ISBN-10 převede na ISBN-13</li>
+        <li>zvládne celý seznam najednou, každé číslo na řádku</li>
+      </ul>
+      <p class="muted">Vyzkoušejte: ISBN z knihy, kterou máte u sebe. Pak v něm změňte jednu číslici. Hodí se i sloupec ISSN z casopisy.csv.</p>
+      <details><summary>Když si nevíte rady: vzorové zadání</summary><pre id="pC">Vytvoř v jednom HTML souboru česky nástroj na kontrolu ISBN a ISSN. Zadám číslo (s pomlčkami i bez), nástroj pozná, jestli jde o ISBN-10, ISBN-13, nebo ISSN, ověří kontrolní číslici a u ISBN-10 ukáže převod na ISBN-13. Umožni vložit i celý seznam čísel najednou, každé na nový řádek, a u každého vypiš výsledek. Bez internetu.</pre><div class="row"><span></span><button type="button" class="copybtn" data-copy="pC">Kopírovat</button></div><div class="status" data-status="pC" aria-live="polite"></div></details>
+    </div>
+
+    <div class="card">
+      <h2>D · Hromadná kontrola citací</h2>
+      <p>Někdo vám poslal seznam literatury a vy chcete ověřit, jestli citace opravdu existují.</p>
+      <ul>
+        <li>vložíte seznam citací, každou na řádek</li>
+        <li>nástroj se u každé zeptá veřejné databáze Crossref</li>
+        <li>ukáže nalezený záznam s DOI a míru shody</li>
+        <li>zvýrazní citace, které nenašel nebo které nesedí</li>
+        <li>nic si nevymýšlí, ukazuje jen to, co vrátí databáze</li>
+      </ul>
+      <p class="muted">Smyšlená data: <a href="data/citace.txt" download>citace.txt</a> (6 citací). Tahle úloha jako jediná potřebuje internet.</p>
+      <p class="muted">Vyzkoušejte: najde nástroj všechny? A co česká kniha?</p>
+      <details><summary>Když si nevíte rady: vzorové zadání</summary><pre id="pD">Vytvoř v jednom HTML souboru česky nástroj na hromadnou kontrolu citací. Vložím seznam citací, každou na nový řádek. Nástroj pro každou citaci pošle dotaz do veřejné databáze Crossref (api.crossref.org, parametr query.bibliographic) a ukáže nejlépe nalezený záznam: název, autory, rok, časopis a DOI jako odkaz, a k tomu míru shody. Citace, ke kterým nic nenajde, nebo kde se nalezený záznam liší, zvýrazni k ruční kontrole. Nic neodhaduj sám, ukazuj jen to, co vrátí databáze. Mezi dotazy dělej krátkou pauzu.</pre><div class="row"><span></span><button type="button" class="copybtn" data-copy="pD">Kopírovat</button></div><div class="status" data-status="pD" aria-live="polite"></div></details>
+    </div>
+
+    <div class="card">
+      <h2>E · Vaše vlastní věta</h2>
+      <p>Vezměte svou větu z dotazníku. Nejdřív se AI zeptejte, co z ní jde postavit jako jednoduchý nástroj, a začněte tou nejmenší verzí.</p>
+      <details><summary>Když si nevíte rady: vzorové zadání</summary><pre id="pV">Tady je můj nápad: [vaše věta]. Chci si postavit jednoduchý nástroj v jednom HTML souboru, česky, bez internetu a bez databáze, jen se smyšlenými daty. Navrhni tři varianty od nejmenší a u každé napiš, co v ní oproti původnímu nápadu chybí. Pak postav tu nejmenší.</pre><div class="row"><span></span><button type="button" class="copybtn" data-copy="pV">Kopírovat</button></div><div class="status" data-status="pV" aria-live="polite"></div></details>
+    </div>
+  </div>
+</main>
+<script>
+document.querySelectorAll(".copybtn").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var id = b.dataset.copy, pre = document.getElementById(id);
+    var st = document.querySelector("[data-status='" + id + "']");
+    function done() { if (st) st.textContent = "Zkopírováno. Vložte do Gemini Canvas nebo do Macaly."; }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      if (st) st.textContent = "Text je označený, zkopírujte ho klávesami Ctrl+C.";
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pre.textContent).then(done, fallback);
+    else fallback();
+  });
+});
+</script>
+</body>
+</html>
